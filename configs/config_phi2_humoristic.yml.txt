@@ -1,0 +1,28 @@
+# Configuration for training microsoft/phi-2 for the 'humoristic' objective.
+# The dataset is automatically selected from the OBJECTIVE_REGISTRY in pipeline.py.
+# Ensure the 'humoristic' entry in the registry points to a jokes dataset.
+
+model:
+  policy_model_name: "microsoft/phi-2"
+  judge_model_name: "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+  quantization_bits: 4
+  use_flash_attention: true
+  gradient_checkpointing: true
+
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.1
+
+training:
+  objective: "humoristic"
+  total_steps: 2000 # Humor might need more steps to learn subtle patterns
+  batch_size: 2
+  mini_batch_size: 1
+  gradient_accumulation_steps: 2
+  learning_rate: 1.4e-5
+  save_interval: 500
+
+data:
+  max_prompt_tokens: 128 # Joke prompts are usually shorter
+  max_response_tokens: 128

@@ -1,0 +1,40 @@
+# Configuration for training microsoft/phi-2 for the 'harmless' objective.
+# This configuration uses a powerful, local Ollama model as the AI Judge.
+#
+# Before running:
+# 1. Ensure Ollama is installed and running.
+# 2. Pull the judge model: 'ollama pull gemma:27b'
+
+model:
+  policy_model_name: "microsoft/phi-2"
+  
+  # Configure the judge
+  judge_type: "ollama"               # Use the Ollama judge
+  ollama_model_name: "gemma:27b"     # Specify which Ollama model to use
+  
+  # This key is now ignored when judge_type is "ollama"
+  # judge_model_name: "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+  
+  quantization_bits: 4
+  use_flash_attention: true
+  gradient_checkpointing: true
+
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.1
+
+training:
+  objective: "harmless"
+  # With a better judge, we might need fewer steps, or we can train for longer
+  # to achieve a higher quality level. Let's keep it consistent for now.
+  total_steps: 1500
+  batch_size: 2
+  mini_batch_size: 1
+  gradient_accumulation_steps: 2
+  learning_rate: 1.4e-5
+  save_interval: 500
+
+data:
+  max_prompt_tokens: 256
+  max_response_tokens: 384

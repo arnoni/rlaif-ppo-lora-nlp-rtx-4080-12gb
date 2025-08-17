@@ -1,0 +1,212 @@
+#############################################
+# lora-training-pipeline-mini – .gitignore  #
+#############################################
+
+# --- Python basics ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dylib
+
+# --- Environments & secrets ---
+.venv/
+venv/
+env/
+.conda/
+.python-version
+*.env
+.env.*
+.envrc
+pip-wheel-metadata/
+
+# --- Build / packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+.wheels/
+
+# --- Logs & runtime clutter ---
+*.log
+logs/
+nohup.out
+*.pid
+
+# --- Testing / coverage / tooling caches ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- IDE / OS files ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Docs builds (Sphinx/MkDocs/etc.) ---
+docs/_build/
+_site/
+site/
+
+# --- Data & experiment outputs (customize as needed) ---
+data/
+datasets/
+!data/README.md
+!datasets/README.md
+outputs/
+results/
+runs/
+experiments/
+checkpoints/
+lightning_logs/
+
+# --- Experiment trackers / dashboards ---
+wandb/
+mlruns/
+tensorboard/
+tb_logs/
+events.out.tfevents*
+
+# --- Hugging Face / Torch caches (if pointed inside repo) ---
+cache/
+hf_cache/
+huggingface/
+transformers_cache/
+torch_cache/
+accelerate/
+
+# --- Model binaries & large ML artifacts (prefer Git LFS if needed) ---
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+*.onnx
+*.tflite
+*.pb
+*.gguf
+
+
+############################
+# AWS / CI-CD / DevOps     #
+############################
+
+# --- Terraform & OpenTofu (state, crash dumps, plans) ---
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+crash.log
+*.tfvars
+*.tfvars.json
+*.tfplan
+*.plan
+# keep lockfile pinned in Git:
+!terraform.lock.hcl
+!.terraform.lock.hcl
+
+# --- AWS CDK / SAM / Serverless / Chalice / Amplify ---
+cdk.out/
+.aws-sam/
+.serverless/
+.webpack/
+.chalice/deployments/
+.chalice/venv/
+amplify/#current-cloud-backend/
+amplify/.config/local-*
+amplify/mock-data/
+amplify/backend/.temp/
+amplify/generated/
+
+# --- Local AWS emulators ---
+.dynamodb/
+.localstack/
+.local-aws/
+
+# --- Credentials / keys (never commit) ---
+*.pem
+*.key
+*.p12
+*.jks
+*.crt
+*.der
+
+# --- CI / CD runners & artifacts (keep pipeline YAMLs) ---
+.act/
+artifacts/
+coverage/
+reports/
+junit.xml
+cobertura.xml
+test-results/
+*.tap
+*.trx
+.tmp/
+temp/
+tmp/
+
+# --- (Optional) Containers & K8s ---
+*.tar
+.docker/
+docker-data/
+.kube/
+
+
+#################################
+# Orchestration / IaC add-ons   #
+#################################
+
+# Prefect (keep project files)
+.prefect/
+!prefect.yaml
+!.prefectignore
+
+# Airflow (keep DAGs/plugins; ignore runtime bits)
+logs/
+.airflow/
+airflow.db
+*.pid
+*.err
+*.out
+
+# Pulumi (ignore local cache/build; keep project & stacks)
+.pulumi/
+bin/
+obj/
+node_modules/
+!Pulumi.yaml
+!Pulumi.*.yaml
+
+# Ansible
+*.retry
+.ansible/
+# (Optional – uncomment if you don't want to commit inventories/vars)
+# inventory/
+# group_vars/
+# host_vars/
+# !group_vars/example.yml
+# !host_vars/example.yml
+
+# Spinnaker (Halyard local config/state)
+.hal/
+.hal-backup/
+
+# Harness
+# NOTE: Do NOT ignore .harness/ (pipelines-as-code should be committed)

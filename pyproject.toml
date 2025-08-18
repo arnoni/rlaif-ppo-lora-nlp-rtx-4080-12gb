@@ -3,7 +3,7 @@ requires = ["hatchling>=1.21.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "rlaif-pipeline"
+name = "rlaif_pipeline"
 version = "0.3.0"
 description = "Enhanced Reinforcement Learning with AI Feedback pipeline for harmless dialogue generation"
 authors = [
@@ -89,15 +89,15 @@ evaluation = [
 
 # All optional dependencies
 all = [
-    "rlaif-pipeline[monitoring,safety,dev,docs,evaluation]",
+    "rlaif_pipeline[monitoring,safety,dev,docs,evaluation]",
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/rlaif-pipeline"
-Documentation = "https://rlaif-pipeline.readthedocs.io"
-Repository = "https://github.com/yourusername/rlaif-pipeline.git"
-Issues = "https://github.com/yourusername/rlaif-pipeline/issues"
-Changelog = "https://github.com/yourusername/rlaif-pipeline/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/yourusername/rlaif_pipeline"
+Documentation = "https://rlaif_pipeline.readthedocs.io"
+Repository = "https://github.com/yourusername/rlaif_pipeline.git"
+Issues = "https://github.com/yourusername/rlaif_pipeline/issues"
+Changelog = "https://github.com/yourusername/rlaif_pipeline/blob/main/CHANGELOG.md"
 
 [project.scripts]
 rlaif-train = "rlaif_pipeline.cli:train_main"
@@ -233,7 +233,7 @@ exclude_lines = [
 # Environment-specific configurations
 [tool.hatch.envs.default]
 dependencies = [
-    "rlaif-pipeline[dev]",
+    "rlaif_pipeline[dev]",
 ]
 
 [tool.hatch.envs.default.scripts]
@@ -246,7 +246,7 @@ check = ["format", "lint", "test"]
 
 [tool.hatch.envs.docs]
 dependencies = [
-    "rlaif-pipeline[docs]",
+    "rlaif_pipeline[docs]",
 ]
 
 [tool.hatch.envs.docs.scripts]
